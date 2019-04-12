@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue的简单模拟</title>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="item in list">
+					{{item}}
+				</li>
+			</ul>
+		</div>
+		<input id="btn01" type="button" value="改变" >	
+		<input id="btn02" type="button" value="改变" >	
+	</body>
+</html>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:"#box",
+		data:{
+			list:['hellow','hi']
+		}
+	})
+	document.getElementById("btn01").onclick = function(){
+		vm.list.push('我真美丽');
+	}
+	document.getElementById("btn02").onclick = function(){
+		vm.list.push('我真滴真滴美丽');
+	}
+</script>

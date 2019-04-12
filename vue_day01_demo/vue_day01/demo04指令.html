@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue的简单模拟</title>
+</head>
+<body>
+	<div id="box">		
+		<p v-if="seen">我</p>
+		<p v-else >你</p>
+		<p v-text="txt"></p>
+		<p v-show="pshow">现在你看到我了</p>
+
+		<div v-if="type === 'A'">
+		  A
+		</div>
+		<div v-else-if="type === 'B'">
+		  B
+		</div>
+		<div v-else-if="type === 'C'">
+		  C
+		</div>
+		<div v-else>
+		  Not A/B/C
+		</div>
+	</div>	
+	
+	<input id="btn01" type="button" value="改变" >	
+	<input id="btn02" type="button" value="改变" >	
+</body>
+</html>
+
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript">
+
+
+	
+
+	// //实例化vue对象
+	let vm = new Vue({
+		el:"#box",
+		data:{	
+			seen:true,
+			txt:"hello",
+			pshow:true,
+			type:"A"
+		}
+	});
+
+	document.getElementById("btn01").onclick = function(){
+		vm.seen = !vm.seen;
+	}
+	document.getElementById("btn02").onclick = function(){
+		vm.pshow = !vm.pshow;
+	}
+	
+
+
+
+</script>

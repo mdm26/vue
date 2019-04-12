@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue的简单模拟</title>
+	</head>
+	<body>
+		<div id="box">
+			<p>姓名:{{name}}</p>
+			<p>年龄:{{age}}</p>
+			姓名：<input id="name" type="text" />
+			年龄：<input id="age" type="text" />
+		</div>
+		<input id="btn01" type="button" value="改变姓名" />
+		<input id="btn02" type="button" value="改变年龄" />
+	</body>
+</html>
+<script type="text/javascript" src="myVue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+//	实例化Vue对象
+		let vm = new MyVue({
+			el:"box",
+			data:{name:"嗷嗷嗷",age:14}
+		});
+		document.getElementById("btn01").onclick = function(){
+			vm.setName(document.getElementById("name").value);
+		}
+		document.getElementById("btn02").onclick = function(){
+			vm.setAge(document.getElementById("age").value);
+		}
+	}
+
+	
+	
+</script>

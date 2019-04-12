@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue的简单模拟</title>
+</head>
+<body>
+	<div id="box">		
+		<p v-once>姓名:{{name}}</p>
+		<p>年龄:{{age}}</p>
+		<p v-html="age"></p>
+		<p>年龄:{{age+2}}</p>
+		<p>{{age>18?'成年':'未成年'}}</p>
+		<div v-bind:id="t"></div>
+		<div v-bind:id="'box_'+ord"></div>
+		<button v-bind:disabled="isButtonDisabled">Button</button>
+
+	</div>	
+	姓名：<input id="name" type="text" ><br/>
+	年龄：<input id="age" type="text" ><br/>
+	<input id="btn01" type="button" value="改变姓名" >	
+	<input id="btn02" type="button" value="改变年龄" >	
+</body>
+</html>
+
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript">
+
+window.onload = function () {
+	
+
+	// //实例化vue对象
+	let vm = new Vue({
+		el:"#box",
+		data:{	
+			name:"张三疯",	
+			age:12,
+			t:"hello",
+			isButtonDisabled:false,
+			ord:2
+		}
+	});
+
+	document.getElementById("btn01").onclick = function(){
+		vm.name = document.getElementById("name").value;
+	}
+	document.getElementById("btn02").onclick = function(){
+		vm.age = document.getElementById("age").value;
+	}
+
+}
+
+</script>

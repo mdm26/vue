@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue的简单模拟</title>
+</head>
+<body>
+	<div id="box">		
+		<p>姓名:{{name}}</p>
+		<p>年龄:{{age}}</p>
+		姓名：<input id="name" type="text" name=""><br/>
+		年龄：<input id="age" type="text" name=""><br/>
+	</div>	
+	<input id="btn01" type="button" value="改变姓名" >	
+</body>
+</html>
+
+<script type="text/javascript" src="MyVue.js"></script>
+<script type="text/javascript">
+
+
+window.onload = function () {
+	// //实例化vue对象
+	let vm = new MyVue({
+		el:"box",
+		data:{	name:"张三疯",	age:12 	}
+	});
+
+	document.getElementById("btn01").onclick = function(){
+		vm.setName(document.getElementById("name").value);
+	}
+
+	document.getElementById("age").onkeyup = function(){
+		vm.setAge(this.value);
+		this.focus();
+	}
+
+}
+
+</script>
